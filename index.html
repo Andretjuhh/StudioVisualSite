@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>StudioVisual | Home</title>
     <link rel="stylesheet" href="./Css/style.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -12,22 +13,31 @@
       rel="stylesheet"
     />
   </head>
-  <body>
-    <div class="col-12 navstyle">
-      <div class="navbar">
-        <img
-          src="./assests/Navass/vizuall-logo-icon.png"
-          alt="Vizuall logo icon"
-          width="111px"
-          height="29px"
-        />
-        <div class="col-12 topnav">
-          <a class="active" href="./index.html">Visie</a>
-          <a href="./werk.html">Werk</a>
-          <a href="./over-ons.html">Over ons</a>
+  <body class="bg-white text-white font-normal font-['Poppins']">
+    <div class="bg-[#463df5] rounded-bl-[100px] rounded-br-[100px]">
+    <!-- Navigation bar -->
+      <nav>
+        <div class="flex items-center justify-center space-x-80 px-[18px] py-8 bg-[#efefee] rounded-bl-[50px] rounded-br-[50px] text-2xl" >
+          <!-- Desktop Nav -->
+            <a href="./index.html"><img src="./assests/Navass/vizuall-logo-icon.png" alt=""></a>
+            <div>
+              <ul class="flex text-[#463df5] space-x-10">
+
+                  <li><a href="./Visie.html">Visie</a></li>
+                  <li><a href="./werk.html">Werk</a></li>
+                  <li><a href="./over-ons.html">Over ons</a> </li>
+                </li>
+              </ul>
+            </div> 
+          <a class="text-[#463df5] rounded-[23px] border border-[#463df5] px-8 py-[13px] text-2xl " href="./contact.html">Contact</a>
         </div>
-        <a class="contact" href="./contact.html">Contact</a>
-      </div>
+      </nav>
+    <!-- Hero section -->
+     <div class="flex items-center justify-center">
+        <img src="./assests/Navass/StudioVizuall_animatie_transparant.gif" alt="">
+     </div>
     </div>
+    <!-- The Quote and info-->
+    <!-- The carousel -->
   </body>
 </html>
