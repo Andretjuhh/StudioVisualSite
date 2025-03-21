@@ -13,7 +13,7 @@
     />
     <style>
       .menu-transition {
-        transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+        transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
       }
       .hidden-menu {
         transform: translateY(-20px);
@@ -25,53 +25,301 @@
         opacity: 1;
         display: block;
       }
+      .menu-item {
+        opacity: 0;
+        transform: translateY(-10px);
+        transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+      }
+      .menu-item.show {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      @media (min-width: 768px) {
+        #mobile-menu {
+          display: none !important;
+        }
+        #menu {
+          display: flex !important;
+          opacity: 1 !important;
+          transform: none !important;
+          position: static !important;
+          top: auto !important;
+          box-shadow: none !important;
+          border-radius: 0 !important;
+          padding: 0 !important;
+          background-color: transparent !important;
+          width: auto !important;
+        }
+        .menu-item {
+          opacity: 1 !important;
+          transform: none !important;
+        }
+      }
     </style>
   </head>
   <body class="bg-white text-white font-['Poppins']">
     <div class="bg-[#463df5] rounded-bl-[100px] rounded-br-[100px]">
-      <!-- Navigation bar -->
-      <nav>
-        <div class="flex flex-wrap items-center justify-between px-6 py-6 bg-[#efefee] rounded-bl-[50px] rounded-br-[50px] text-xl md:px-12">
-          <!-- Logo -->
+      <nav class="relative z-10">
+        <div
+          class="flex items-center justify-between px-6 py-6 bg-[#efefee] rounded-bl-[50px] rounded-br-[50px] text-xl md:px-12"
+        >
           <a href="./index.html">
-            <img src="./assests/Navass/vizuall-logo-icon.png" alt="Logo" class="h-12 md:h-16">
+            <img
+              src="./assests/Navass/vizuall-logo-icon.png"
+              alt="Logo"
+              class="h-12 md:h-16"
+            />
           </a>
-          <!-- Mobile Menu Button -->
-          <button id="menu-btn" class="block md:hidden text-[#463df5] text-3xl">&#9776;</button>
-          <!-- Desktop & Mobile Menu -->
-          <div id="menu" class="hidden-menu menu-transition md:flex md:items-center md:space-x-8 text-[#463df5]">
-            <ul class="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-10 text-lg">
-              <li><a class="hover:font-semibold hover:border-b-4 border-white transition duration-500" href="./Visie.html">Visie</a></li>
-              <li><a class="hover:font-semibold hover:border-b-4 border-white transition duration-500" href="./werk.html">Werk</a></li>
-              <li><a class="hover:font-semibold hover:border-b-4 border-white transition duration-500" href="./over-ons.html">Over ons</a></li>
+          <div class="hidden md:flex md:items-center md:space-x-10">
+            <ul
+              id="menu"
+              class="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-10 text-lg text-[#463df5] menu-transition"
+            >
+              <li class="menu-item">
+                <a
+                  class="hover:font-semibold hover:border-b-4 border-white transition duration-500"
+                  href="./Visie.html"
+                  >Visie</a
+                >
+              </li>
+              <li class="menu-item">
+                <a
+                  class="hover:font-semibold hover:border-b-4 border-white transition duration-500"
+                  href="./werk.html"
+                  >Werk</a
+                >
+              </li>
+              <li class="menu-item">
+                <a
+                  class="hover:font-semibold hover:border-b-4 border-white transition duration-500"
+                  href="./over-ons.html"
+                  >Over ons</a
+                >
+              </li>
             </ul>
           </div>
-          <!-- Contact Button -->
-          <a href="./contact.html" class="hidden md:inline-block text-[#463df5] rounded-full border border-[#463df5] px-6 py-2 text-lg hover:bg-[#463df5] hover:text-white transition duration-700">Contact</a>
+          <a
+            href="./contact.html"
+            class="hidden md:inline-block text-[#463df5] rounded-full border border-[#463df5] px-6 py-2 text-lg hover:bg-[#463df5] hover:text-white transition duration-700"
+            >Contact</a
+          >
+          <button id="menu-btn" class="block md:hidden text-[#463df5] text-3xl">
+            &#9776;
+          </button>
+        </div>
+        <div
+          id="mobile-menu"
+          class="hidden-menu menu-transition md:hidden absolute top-full left-0 w-full bg-[#efefee] p-6 text-[#463df5] rounded-b-[50px] shadow-lg z-50"
+        >
+          <ul class="flex flex-col space-y-4 text-lg">
+            <li class="menu-item"><a href="./Visie.html">Visie</a></li>
+            <li class="menu-item"><a href="./werk.html">Werk</a></li>
+            <li class="menu-item"><a href="./over-ons.html">Over ons</a></li>
+            <li class="menu-item"><a href="./contact.html">Contact</a></li>
+          </ul>
         </div>
       </nav>
-      <!-- Hero section -->
-      <div class="flex items-center justify-center p-6">
-        <img src="./assests/Navass/StudioVizuall_animatie_transparant.gif" alt="Animatie" class="w-full max-w-md md:max-w-xl lg:max-w-2xl">
-      </div>
-    </div>
-    
-    <!-- Content Section -->
-    <div class="h-auto bg-[#171616] rounded-[100px] p-6 text-center">
-      <h1 class="text-3xl text-white">This is text</h1>
+      <section
+        class="relative bg-[#463df5] text-white rounded-bl-[100px] rounded-br-[100px] -mb-28 z-30"
+      >
+        <div class="max-w-screen-xl mx-auto px-6 pt-12 pb-24 text-center">
+          <img
+            src="./assests/Navass/StudioVizuall_animatie_transparant.gif"
+            alt="StudioVisual Hero"
+            class="mx-auto max-w-4xl mb-8"
+          />
+        </div>
+      </section>
+
+      <section
+        class="relative bg-[#171616] text-white rounded-tl-[100px] rounded-tr-[100px] pt-40 -mt-20 z-20"
+      >
+        <div class="max-w-screen-xl mx-auto px-6 pt-20 pb-12 text-center">
+          <h1 class="text-4xl md:text-6xl font-bold leading-tight">
+            Designen voor een betere wereld
+          </h1>
+          <p class="mt-6 max-w-3xl mx-auto text-lg md:text-xl text-white/90">
+            Wij designen voor positieve transformaties die opvallen, indruk
+            maken en grenzen verleggen<br />
+            door een narratief dat aansluit bij jouw boodschap.
+          </p>
+          <a
+            href="#"
+            class="mt-10 inline-block bg-white text-[#463df5] font-semibold px-8 py-3 rounded-full text-lg hover:bg-[#e5e5ff] transition"
+            >Bekijk ons werk</a
+          >
+        </div>
+        <div class="max-w-6xl mx-auto text-center pt-16 pb-24 px-6">
+          <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">
+            Wat we doen
+          </h2>
+          <p class="text-lg md:text-xl max-w-3xl mx-auto text-white/90">
+            Wij ontwerpen doelbewust voor het oproepen van plezier en positieve
+            emoties bij gebruikers door middel van aantrekkelijke, intuïtieve en
+            betekenisvolle interacties.
+          </p>
+        </div>
+      </section>
     </div>
 
+    <!-- Kernwaarden -->
+    <div class="bg-[#f5f5f5] py-20 px-6">
+      <h2 class="text-center text-4xl font-semibold text-[#463df5] mb-12">
+        Onze Kernwaarden
+      </h2>
+      <div
+        class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 text-center"
+      >
+        <div>
+          <div class="w-24 h-24 mx-auto bg-[#463df5] rounded-full mb-4"></div>
+          <h3 class="text-2xl font-semibold text-[#463df5] mb-2">
+            Betrokkenheid
+          </h3>
+          <p class="text-[#333]">
+            We werken met empathie en verbinden ons oprecht met elk project.
+          </p>
+        </div>
+        <div>
+          <div class="w-24 h-24 mx-auto bg-[#463df5] rounded-full mb-4"></div>
+          <h3 class="text-2xl font-semibold text-[#463df5] mb-2">
+            Emotionele verbinding
+          </h3>
+          <p class="text-[#333]">
+            Onze ontwerpen wekken gevoel op en bouwen betekenisvolle relaties.
+          </p>
+        </div>
+        <div>
+          <div class="w-24 h-24 mx-auto bg-[#463df5] rounded-full mb-4"></div>
+          <h3 class="text-2xl font-semibold text-[#463df5] mb-2">Empathie</h3>
+          <p class="text-[#333]">
+            We ontwerpen op basis van echt begrip voor de eindgebruiker.
+          </p>
+        </div>
+        <div>
+          <div class="w-24 h-24 mx-auto bg-[#463df5] rounded-full mb-4"></div>
+          <h3 class="text-2xl font-semibold text-[#463df5] mb-2">
+            Positief gedrag
+          </h3>
+          <p class="text-[#333]">
+            Design dat inspireert tot actie en stimuleert tot betere keuzes.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Projecten -->
+    <div class="bg-[#171616] py-20 px-6 text-white">
+      <h2 class="text-center text-4xl font-semibold mb-12">
+        Onze Vizuall Masterpieces
+      </h2>
+      <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10">
+        <div class="bg-[#2a2a2a] rounded-[40px] p-4">
+          <img
+            src="https://placehold.co/546x589"
+            alt="Musimapp"
+            class="rounded-[30px] mb-4"
+          />
+          <h3 class="text-2xl font-semibold mb-2">Musimapp</h3>
+          <p>Een nieuwe manier van verhalen delen door middel van muziek.</p>
+        </div>
+        <div class="bg-[#2a2a2a] rounded-[40px] p-4">
+          <img
+            src="https://placehold.co/546x589"
+            alt="Focus by Fortes"
+            class="rounded-[30px] mb-4"
+          />
+          <h3 class="text-2xl font-semibold mb-2">Focus by Fortes</h3>
+          <p>Ontwerpen en ontwikkelen van de website voor Focus by Fortes.</p>
+        </div>
+        <div class="bg-[#2a2a2a] rounded-[40px] p-4">
+          <img
+            src="https://placehold.co/546x589"
+            alt="Social Love"
+            class="rounded-[30px] mb-4"
+          />
+          <h3 class="text-2xl font-semibold mb-2">Social Love</h3>
+          <p>
+            Branding-uitingen dat het beste uit je haalt voor een betere
+            maatschappij.
+          </p>
+        </div>
+        <div class="bg-[#2a2a2a] rounded-[40px] p-4">
+          <img
+            src="https://placehold.co/546x589"
+            alt="Learning dashboard"
+            class="rounded-[30px] mb-4"
+          />
+          <h3 class="text-2xl font-semibold mb-2">Learning dashboard</h3>
+          <p>
+            Het motiveren van medewerkers om trainingen te maken door badges.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-[#463df5] text-white py-16 px-6">
+      <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div>
+          <h4 class="text-2xl font-semibold mb-4">Follow Us</h4>
+          <ul class="space-y-2">
+            <li>LinkedIn</li>
+            <li>Instagram</li>
+            <li>Dribbble</li>
+            <li>Behance</li>
+            <li>Spotify</li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-2xl font-semibold mb-4">Navigation</h4>
+          <ul class="space-y-2">
+            <li>Visie</li>
+            <li>Werk</li>
+            <li>Over ons</li>
+            <li>Contact</li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-2xl font-semibold mb-4">Let’s connect</h4>
+          <p class="mb-2">hello@studiovizuall.com</p>
+          <p class="mb-2">+31 6 43 41 03 24</p>
+          <p class="text-sm mt-6">Gevestigd in Rotterdam</p>
+        </div>
+      </div>
+      <div class="text-center mt-12 text-sm">
+        © Studio Vizuall 2024 •
+        <a href="#" class="underline">Privacyverklaring</a>
+      </div>
+    </footer>
+
     <script>
-      document.getElementById('menu-btn').addEventListener('click', function() {
-        const menu = document.getElementById('menu');
-        if (menu.classList.contains('hidden-menu')) {
-          menu.classList.remove('hidden-menu');
-          menu.classList.add('visible-menu');
-        } else {
-          menu.classList.remove('visible-menu');
-          menu.classList.add('hidden-menu');
-        }
-      });
+      document
+        .getElementById("menu-btn")
+        .addEventListener("click", function () {
+          const menu = document.getElementById("mobile-menu");
+          const menuItems = menu.querySelectorAll(".menu-item");
+          if (menu.classList.contains("hidden-menu")) {
+            menu.style.display = "block";
+            setTimeout(() => {
+              menu.classList.remove("hidden-menu");
+              menu.classList.add("visible-menu");
+              menuItems.forEach((item, index) => {
+                setTimeout(() => {
+                  item.classList.add("show");
+                }, index * 100);
+              });
+            }, 10);
+          } else {
+            menuItems.forEach((item) => {
+              item.classList.remove("show");
+            });
+            menu.classList.remove("visible-menu");
+            menu.classList.add("hidden-menu");
+            setTimeout(() => {
+              menu.style.display = "none";
+            }, 500);
+          }
+        });
     </script>
   </body>
 </html>
